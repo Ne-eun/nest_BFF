@@ -26,6 +26,18 @@ export class BoardsService {
     return this.boards;
   }
 
+  editBoardStatus(id: string, status: BoardStatus) {
+    const newData = this.boards.map((data) => {
+      if (data.id === +id) {
+        return { ...data, status };
+      }
+      return data;
+    });
+    console.log(newData);
+    this.boards = newData;
+    return newData;
+  }
+
   deleteBoard(id: string): void {
     const newBoard = this.boards.filter((item) => item.id !== +id);
     this.boards = newBoard;
