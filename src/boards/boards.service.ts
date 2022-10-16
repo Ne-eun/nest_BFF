@@ -25,4 +25,9 @@ export class BoardsService {
     this.boards.push(boardData);
     return this.boards;
   }
+
+  deleteBoard(id: string): void {
+    const newBoard = this.boards.filter((item) => item.id !== +id);
+    this.boards = newBoard;
+  }
 }
